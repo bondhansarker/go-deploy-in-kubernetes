@@ -3,13 +3,15 @@ package main
 import (
 	"fmt"
 	"net/http"
+
+	"demo/src"
 )
 
 func main() {
-	ConfigLoad()
-	cfg := AllConfig()
-	ConnectDb(cfg.Db)
-	AssignRoutes()
+	src.ConfigLoad()
+	cfg := src.AllConfig()
+	src.ConnectDb(cfg.Db)
+	src.AssignRoutes()
 	fmt.Println("Server is starting......")
 	http.ListenAndServe(":3000", nil)
 }

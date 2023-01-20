@@ -1,4 +1,4 @@
-package main
+package src
 
 import (
 	"fmt"
@@ -23,9 +23,7 @@ func ConnectDb(dbConfig *DbConfig) {
 	if dbConfig.Debug {
 		logMode = logger.Info
 	}
-
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true", dbConfig.User, dbConfig.Pass, dbConfig.Host, dbConfig.Port, dbConfig.Schema)
-
 	dB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{
 		PrepareStmt: true,
 		Logger:      logger.Default.LogMode(logMode),
@@ -48,7 +46,6 @@ func ConnectDb(dbConfig *DbConfig) {
 	if dbConfig.MaxConnLifetime != 0 {
 		sqlDb.SetConnMaxLifetime(dbConfig.MaxConnLifetime * time.Second)
 	}
-
 	dB.AutoMigrate(
 		&User{},
 	)
