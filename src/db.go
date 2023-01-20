@@ -47,7 +47,7 @@ func ConnectDb(dbConfig *DbConfig) {
 		sqlDb.SetConnMaxLifetime(dbConfig.MaxConnLifetime * time.Second)
 	}
 	dB.AutoMigrate(
-		&User{},
+	// &User{},
 	)
 	fmt.Println("mysql connection successful...")
 }
