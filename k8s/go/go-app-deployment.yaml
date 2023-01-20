@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: my-go-app
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: go-app
