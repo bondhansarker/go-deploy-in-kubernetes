@@ -8,7 +8,7 @@ import (
 )
 
 func AssignRoutes() {
-	http.HandleFunc("/health_check", check)
+	http.HandleFunc("/", check)
 	http.HandleFunc("/create", create)
 	http.HandleFunc("/fetch", fetch)
 }
